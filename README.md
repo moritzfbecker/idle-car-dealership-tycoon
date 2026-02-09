@@ -1,97 +1,217 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Idle Car Dealership Tycoon 🚗💰
 
-# Getting Started
+> A mobile idle/tycoon game where you build and manage a car dealership empire!
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 📋 Project Overview
 
-## Step 1: Start Metro
+**Idle Car Dealership Tycoon** is a React Native mobile game inspired by *Idle Supermarket Tycoon* by Codigames. Players start with a small car lot and gradually expand into a multi-department automotive retail empire through strategic upgrades, staff management, and prestige mechanics.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### Key Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 🏢 **6 Unique Departments**: Showroom, Service Center, Parts Shop, Finance Office, Detailing, Parking Lot
+- 👥 **Staff Management**: Hire and upgrade employees to boost efficiency
+- 💎 **Dual Currency System**: Cash and Gems
+- 🌆 **Prestige System**: Move to bigger cities for permanent multipliers
+- 📦 **Delivery Trucks**: Passive income mechanic
+- 🎯 **Quests & Achievements**: Daily challenges and long-term goals
+- 💤 **Offline Earnings**: Earn money even when you're away (up to 4 hours)
+- 🎨 **Polished UI**: Smooth animations and satisfying feedback
 
-```sh
-# Using npm
-npm start
+## 🚀 Getting Started
 
-# OR using Yarn
-yarn start
+### Prerequisites
+
+- **Node.js**: >= 20
+- **React Native CLI**: Installed globally
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development - macOS only)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd idlecardealertycoon
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install iOS dependencies** (macOS only)
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+
+### Running the App
+
+#### Android
+```bash
+npm run android
 ```
 
-## Step 2: Build and run your app
+#### iOS
+```bash
+npm run ios
+```
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+#### Start Metro Bundler
+```bash
+npm start
+```
+
+### Development Commands
+
+```bash
+npm run lint          # Run ESLint
+npm test              # Run Jest tests
+npm run type-check    # Check TypeScript types
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── common/          # Generic components (Button, Card, etc.)
+│   ├── game/            # Game-specific components (Customer, Staff, etc.)
+│   └── ui/              # UI elements (CurrencyDisplay, UpgradePanel, etc.)
+├── screens/             # Main app screens
+├── game/                # Core game logic
+│   ├── engine/          # Game loop and ticker
+│   ├── managers/        # Game systems (customers, departments, revenue)
+│   ├── entities/        # Game entities (Customer, Staff, Department classes)
+│   └── data/            # Game data and configuration
+├── store/               # State management (Zustand)
+├── services/            # External services (storage, analytics)
+├── utils/               # Utility functions
+├── hooks/               # Custom React hooks
+├── assets/              # Images, fonts, sounds
+└── types/               # TypeScript type definitions
+```
+
+## 🎮 Game Design
+
+For detailed game mechanics and design decisions, see:
+- **[Game Design Document](./GAME_DESIGN_DOCUMENT.md)** - Complete game design and mechanics
+- **[Technical Architecture](./TECHNICAL_ARCHITECTURE.md)** - Code architecture and system design
+- **[Development Plan](./DEVELOPMENT_PLAN.md)** - Roadmap and development phases
+
+## 🛠️ Tech Stack
+
+- **Framework**: React Native 0.83.1
+- **Language**: TypeScript 5.8.3
+- **State Management**: Zustand
+- **Navigation**: React Navigation 6.x
+- **Persistence**: AsyncStorage
+- **Animation**: React Native Reanimated 3.x
+- **Testing**: Jest + React Native Testing Library
+
+## 📊 Game Mechanics Summary
+
+### Core Loop
+1. Customers arrive at parking lot
+2. Browse departments (Showroom, Service, etc.)
+3. Complete purchase at Finance Office
+4. Revenue generated automatically
+
+### Progression
+- **Upgrades**: Improve department capacity, quality, and speed
+- **Staff**: Hire employees to boost efficiency
+- **Prestige**: Move to bigger cities for permanent multipliers
+- **Epic Upgrades**: Permanent bonuses purchased with gems
+
+### Economy
+- **Cash**: Primary currency, earned from customers
+- **Gems**: Premium currency, earned from quests/achievements
+- **Offline Earnings**: Accumulate up to 4 hours of revenue while away
+
+## 🎯 Development Status
+
+### ✅ Completed
+- [x] Game Design Documentation
+- [x] Technical Architecture
+- [x] Project Structure Setup
+- [x] Core Type Definitions
+- [x] Utility Functions
+- [x] Game Store (Zustand)
+- [x] Department Data Configuration
+
+### 🚧 In Progress
+- [ ] Game Engine Implementation
+- [ ] UI Components
+- [ ] Customer System
+- [ ] Revenue Calculation
+
+### 📅 Upcoming
+- [ ] All 6 Departments
+- [ ] Prestige System
+- [ ] Quest System
+- [ ] Polish & Balancing
+- [ ] Testing & Launch
+
+See [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for detailed roadmap.
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm test -- --watch
+
+# Run with coverage
+npm test -- --coverage
+```
+
+## 📱 Building for Production
 
 ### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+cd android
+./gradlew bundleRelease
+# Output: android/app/build/outputs/bundle/release/app-release.aab
 ```
 
 ### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+cd ios
+# Open in Xcode and archive
+# Product → Archive
 ```
 
-Then, and every time you update your native dependencies, run:
+## 📝 Documentation
 
-```sh
-bundle exec pod install
-```
+- **[Game Design Document](./GAME_DESIGN_DOCUMENT.md)** - Game mechanics, features, progression
+- **[Technical Architecture](./TECHNICAL_ARCHITECTURE.md)** - Code structure, systems, algorithms
+- **[Development Plan](./DEVELOPMENT_PLAN.md)** - Roadmap, phases, milestones
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🤝 Contributing
 
-```sh
-# Using npm
-npm run ios
+This is a learning project. Contributions, feedback, and suggestions are welcome!
 
-# OR using Yarn
-yarn ios
-```
+## 📄 License
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+[MIT License](./LICENSE)
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 🙏 Credits
 
-## Step 3: Modify your app
+- **Inspired by**: *Idle Supermarket Tycoon* by Codigames
+- **Research Sources**:
+  - [Idle Supermarket Tycoon on App Store](https://apps.apple.com/us/app/idle-supermarket-tycoon-shop/id1442064951)
+  - [Codigames Official](https://codigames.com/game/idle-supermarket-tycoon/)
+  - Various strategy guides and community resources
 
-Now that you have successfully run the app, let's make changes!
+## 📞 Support
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+For questions or issues:
+- Open an issue in the repository
+- Check the documentation in `/docs`
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+**Made with ❤️ and Claude Code**
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+*Let's build an amazing car dealership empire!* 🚗💰🎮
